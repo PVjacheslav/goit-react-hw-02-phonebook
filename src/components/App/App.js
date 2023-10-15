@@ -62,7 +62,7 @@ export class App extends Component {
       <Container>
         <Title>Phonebook</Title>
 
-        <ContactForm onSubmit={this.addContact} />
+        <ContactForm onAdd={this.addContact} />
 
         <SubTitle>Contacts</SubTitle>
         {this.state.contacts.length > 0 ? (

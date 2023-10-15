@@ -4,10 +4,10 @@ import { ErrMsg, Label, StyledField, StyledForm } from './ContactForm.styled';
 
 const contactFormSchema = Yup.object().shape({
     name:   Yup.string().min(2, "Too short!").required("This field is required!"),
-    number: Yup.number().min(4, "Min 4 numbers").max(10, "Max 10 numbers").required("This field is required!"),
+    number: Yup.number().min(4, "Min 4 numbers").required("This field is required!"),
 })
 
-export const ContactForm = () => {
+export const ContactForm = ({onAdd}) => {
     return (
         <div>
             <Formik
@@ -17,7 +17,7 @@ export const ContactForm = () => {
                 }}
                 validationSchema={contactFormSchema}
                 onSubmit={(values, action) => {
-                    
+                 onAdd(values)   
                     action.resetForm()
                 
             }}
